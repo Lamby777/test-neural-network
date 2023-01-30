@@ -3,8 +3,6 @@
 * ( Another crappy project by @Dex :D )
 */
 
-use image::{self, imageops::*};
-
 mod consts;
 
 mod classes;
@@ -12,9 +10,21 @@ use classes::*;
 
 mod eval;
 
-pub fn main() -> IDFC<()> {
-	// do stuff
-	// find out if the picture is a hot dog
+pub fn main(args: Vec<String>) -> IDFC<()> {
+	if args.len() < 2 {
+		return Ok(())
+	}
 
-	Ok(())
+	let mode = &args[1].to_lowercase();
+
+	match mode.as_str() {
+		"train"	=> {
+			// do stuff
+			// find out if the picture is a hot dog
+
+			Ok(())
+		},
+
+		_	=> Ok(())
+	}
 }
